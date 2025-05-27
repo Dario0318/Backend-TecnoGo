@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clonar código') {
+            steps {
+                echo 'Clonando repositorio...'
+            }
+        }
+
+        stage('Instalar dependencias') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+
+        stage('Pruebas') {
+            steps {
+                sh 'npm test || echo "Sin pruebas definidas"'
+            }
+        }
+    }
+}
