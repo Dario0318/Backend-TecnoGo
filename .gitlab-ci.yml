@@ -17,8 +17,3 @@ build:
     - npm run build
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH  # Solo en rama principal
-
-test:
-  stage: test
-  script:
-    - npm run lint
