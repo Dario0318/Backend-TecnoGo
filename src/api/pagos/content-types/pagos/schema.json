@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "slug",
+  "info": {
+    "singularName": "pagos",
+    "pluralName": "slug",
+    "displayName": "Pagos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "pagoName": {
+      "type": "string"
+    }
+  }
+}
