@@ -478,6 +478,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       true
     >;
     isFeatured: Schema.Attribute.Boolean;
+    isOffered: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -485,7 +486,17 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     origin: Schema.Attribute.Enumeration<
-      ['Africa', 'Asia', 'America', 'Europe']
+      [
+        'Oster ',
+        'Bosch',
+        'Sole',
+        'LG',
+        'ElectroLux',
+        'Samsung',
+        'Daewoo',
+        'Philips',
+        'Holstein',
+      ]
     >;
     price: Schema.Attribute.Decimal;
     productName: Schema.Attribute.String;

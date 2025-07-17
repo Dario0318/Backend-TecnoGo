@@ -42,10 +42,15 @@
     "origin": {
       "type": "enumeration",
       "enum": [
-        "Africa",
-        "Asia",
-        "America",
-        "Europe"
+        "Oster ",
+        "Bosch",
+        "Sole",
+        "LG",
+        "ElectroLux",
+        "Samsung",
+        "Daewoo",
+        "Philips",
+        "Holstein"
       ]
     },
     "taste": {
@@ -62,6 +67,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
+    },
+    "isOffered": {
+      "type": "boolean"
     }
   }
 }

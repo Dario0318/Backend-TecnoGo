@@ -23,4 +23,21 @@ export default () => ({
       },
     },
   },
+  email: {
+    config: {
+      provider: "nodemailer",
+      providerOptions: {
+        host: "smtp.gmail.com",
+        port: 465,
+        auth: {
+          user: process.env.EMAIL_ADDRESS,
+          pass: process.env.EMAIL_PASSWORD,
+        },
+      },
+      settings: {
+        defaultFrom: process.env.EMAIL_ADDRESS,
+        defaultReplyTo: process.env.EMAIL_ADDRESS
+      },
+    },
+  },
 });
