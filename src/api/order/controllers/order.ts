@@ -26,7 +26,7 @@ export default factories.createCoreController('api::order.order', ({ strapi }) =
       payment_method_types: ['card'],
       mode: 'payment',
       line_items: lineItems,
-      success_url: 'http://localhost:3000/success',
+      success_url: 'https://frontend-tecno-go.vercel.app/success',
       cancel_url: 'http://localhost:3000/cancel',
     });
 

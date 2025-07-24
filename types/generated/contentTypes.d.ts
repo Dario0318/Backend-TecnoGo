@@ -407,6 +407,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
   collectionName: 'orders';
   info: {
+    description: '';
     displayName: 'Order';
     pluralName: 'orders';
     singularName: 'order';
@@ -422,6 +423,7 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::order.order'> &
       Schema.Attribute.Private;
+    Location: Schema.Attribute.Text;
     products: Schema.Attribute.JSON;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -473,12 +475,19 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    Disponibilidad: Schema.Attribute.Enumeration<
+      ['En stock ', 'Agotado', 'Pre venta']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'En stock '>;
     images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
     isFeatured: Schema.Attribute.Boolean;
-    isOffered: Schema.Attribute.Boolean;
+    isOffered: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -498,11 +507,20 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
         'Holstein',
       ]
     >;
+    PercentOffer: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 99;
+          min: 5;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5>;
     price: Schema.Attribute.Decimal;
     productName: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'productName'>;
-    taste: Schema.Attribute.Enumeration<['sweet', 'citric']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

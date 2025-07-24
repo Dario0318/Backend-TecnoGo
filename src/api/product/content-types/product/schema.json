@@ -53,12 +53,15 @@
         "Holstein"
       ]
     },
-    "taste": {
+    "Disponibilidad": {
       "type": "enumeration",
       "enum": [
-        "sweet",
-        "citric"
-      ]
+        "En stock ",
+        "Agotado",
+        "Pre venta"
+      ],
+      "default": "En stock ",
+      "required": true
     },
     "isFeatured": {
       "type": "boolean"
@@ -69,7 +72,16 @@
       "target": "api::category.category"
     },
     "isOffered": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "PercentOffer": {
+      "type": "integer",
+      "default": 5,
+      "max": 99,
+      "min": 5,
+      "required": true
     }
   }
 }
